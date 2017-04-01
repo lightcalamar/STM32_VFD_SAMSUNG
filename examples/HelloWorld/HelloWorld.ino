@@ -1,38 +1,44 @@
 /********************
   Pin config:
-  
-  SCLK = pin 7
-  RST  = pin 6
-  DATA = pin 5
+  SCLK = pin PB9
+  RST  = pin PB8
+  DATA = pin PB7
 *********************/
 
 #include <Samsung_16LF01_VFD.h>
+Samsung_16LF01_VFD vfd(PB9, PB7, PB8);   // Constructor
 
-Samsung_16LF01_VFD vfd(7, 5, 6);
+
 
 void setup() {
-  // Init the display, 16 digits and 5/31 of brightness
-  vfd.begin(16, 14);
+    vfd.begin(16, 31);  // Init the display, 16 digits and 5/31 of brightness
   vfd.clear();
-
+  
+  vfd.print(" STM32F103C8T6 ");
+  delay(2000);
+  vfd.print(" my name is tomas");
+  delay(4000);
+  pinMode(PB12, OUTPUT);
 } 
 
 void loop() {
-//  vfd.print(millis() / 1000);
- // vfd.println(" s");
- // delay(1000);
 
-  vfd.print(" tigre");
+  vfd.clear();
+  vfd.home();
+
+  vfd.print("VFD SAMSUNG 16X1");
   delay(3000);
-  vfd.home();
   vfd.clear();
+  vfd.home();
+  vfd.print("HELLO stm32duino");
+  delay(4000);
+  digitalWrite(PB12, HIGH);
   delay(1000);
-  vfd.print("5 bonos ");
-  delay(2000);
-  vfd.home();
+  digitalWrite(PB12, LOW);
   vfd.clear();
-  vfd.print("ondacero");
-  
-  
-}
-
+  vfd.print("  good morning");
+  delay(2000);
+  vfd.clear();
+  vfd.print("all users forum");
+  delay(2000);
+ }
