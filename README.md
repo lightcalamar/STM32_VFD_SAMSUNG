@@ -1,4 +1,4 @@
-# SMT32_VFD_SAMSUNG
+# STM32_VFD_SAMSUNG
 VFD Display series 16LF01 running on chip STM32F103xxxx
 
 Repositorio https://github.com/DnaX/Samsung_16LF01_VFD 
